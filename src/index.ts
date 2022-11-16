@@ -1,6 +1,6 @@
-import { createAuth, getToken, refreshToken, requestAuth } from '@internals/auth';
-import { game } from '@internals/resources';
-import { HTTPResponseError } from '@internals/shared';
+import { createAuth, getToken, refreshToken, requestAuth } from '#internal/auth';
+import { game } from '#internal/resources';
+import { HTTPResponseError } from '#internal/shared';
 import dotenv from 'dotenv';
 import express, { Express, Request, Response } from 'express';
 
