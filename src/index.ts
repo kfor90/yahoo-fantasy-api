@@ -1,14 +1,14 @@
+import { createAuth, getToken, refreshToken, requestAuth } from '@internals/auth';
+import { game } from '@internals/resources';
+import { HTTPResponseError } from '@internals/shared';
 import dotenv from 'dotenv';
 import express, { Express, Request, Response } from 'express';
-
-import { createAuth, getToken, refreshToken, requestAuth } from './auth.js';
-import * as game from './resources/game.js';
-import { HTTPResponseError } from './shared/errors.js';
 
 dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT;
+const APP_DOMAIN = 'https://580b-176-100-43-85.ngrok.io';
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -40,12 +40,12 @@ app.put('/refresh_auth', async (req: Request, res: Response) => {
 });
 
 app.get('/auth', async (req: Request, res: Response) => {
-  res.redirect(requestAuth(`https://b526-176-100-43-83.ngrok.io/callback`));
+  res.redirect(requestAuth(`${APP_DOMAIN}/callback`));
 });
 
 app.get('/callback', async (req: Request, res: Response) => {
   const { code } = req.query;
-  const accessToken = await getToken(code as string, `https://b526-176-100-43-83.ngrok.io/callback`);
+  const accessToken = await getToken(code as string, `${APP_DOMAIN}/callback`);
   res.status(200).json(accessToken?.token);
 });
 
