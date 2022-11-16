@@ -11,7 +11,8 @@ export const createAuth = () => {
     auth: {
       tokenHost: 'https://api.login.yahoo.com',
       tokenPath: '/oauth2/get_token',
-      authorizePath: '/oauth2/request_auth'
+      authorizePath: '/oauth2/request_auth',
+      revokePath: 'oauth2/revoke'
     },
   };
   
