@@ -1,4 +1,4 @@
-import * as api from '../api.js';
+import * as api from '#internal/api';
 
 const GAME_COLLECTION = 'games';
 

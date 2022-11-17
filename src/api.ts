@@ -1,6 +1,5 @@
+import { HTTPResponseError } from '#internal/shared';
 import fetch, { Headers, Response } from 'node-fetch';
-
-import { HTTPResponseError } from './shared/errors.js';
 
 const YAHOO_FANTASY_URL = 'https://fantasysports.yahooapis.com/fantasy/v2/';
 
